@@ -178,21 +178,19 @@ export const config: SiteConfig = {
       name: "AWS Certified AI Practitioner",
       issuer: "Amazon Web Services",
       date: "Jan 2026",
+      verifyUrl: "https://www.credly.com/badges/71dab530-bd59-481b-b423-510d273cf41f/linked_in_profile",
     },
     {
       name: "AWS Certified Cloud Practitioner",
       issuer: "Amazon Web Services",
       date: "Oct 2024",
+      verifyUrl: "https://www.credly.com/badges/87100de4-c588-4a33-bd3c-f7c81bb14895/linked_in_profile",
     },
     {
       name: "Microsoft Certified: Azure Fundamentals",
       issuer: "Microsoft",
       date: "Apr 2025",
-    },
-    {
-      name: "Digital Forensics — FINDS Research Center",
-      issuer: "Florida International University",
-      date: "2024",
+      verifyUrl: "https://learn.microsoft.com/api/credentials/share/en-us/drga98/8FE91842961D275A?sharingId=3CB7A474713F2C24",
     },
   ],
 
