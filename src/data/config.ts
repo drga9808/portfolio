@@ -17,7 +17,9 @@ export interface SiteConfig {
 
 export interface Project {
   title: string;
+  slug: string;
   description: string;
+  longDescription: string;
   tech: string[];
   url?: string;
   github?: string;
@@ -83,28 +85,36 @@ export const config: SiteConfig = {
   projects: [
     {
       title: "Yorkshire Water DMA Analysis",
-      description: "Machine learning pipeline analyzing Distribution Management Areas to identify flow patterns, anomalies (e.g., high night flows), and relationships to property composition and mains repairs. Includes time-series preprocessing, EDA workflow, and night-flow leakage analysis.",
+      slug: "yorkshire-water-dma",
+      description: "ML pipeline analyzing water distribution areas for flow anomalies and leakage detection.",
+      longDescription: "This project analyzes Yorkshire Water Distribution Management Areas using a data science pipeline that covers dataset interpretation, time-series preprocessing, and anomaly detection.\n\nThe analysis follows seven stages — from data ingestion through visualization — with a focus on DMA 512 (Area E1), selected for having the largest property count disparity. Night flow analysis (00:00–05:00) revealed a maximum of 7.04 L/s, minimum of 0.02 L/s, and mean of 2.54 L/s — metrics useful for leakage assessment.\n\nKey areas include flow behavior analysis across DMAs, detection of irregular patterns such as elevated nighttime flows, and property data correlation with consumption metrics. Future work includes automating DMA selection, integrating repair logs, creating interactive dashboards, and implementing statistical leakage detection algorithms.",
       tech: ["Python", "Pandas", "NumPy", "Matplotlib", "Jupyter"],
       github: "https://github.com/drga9808/Machine-Learning-Water-Metering",
       featured: true,
     },
     {
       title: "ML Algorithms from Scratch",
-      description: "Machine learning algorithms implemented from scratch in Python/NumPy with no high-level ML libraries. Includes Fuzzy C-Means clustering, Elbow Method, and Silhouette Coefficient visualizations with documented Jupyter Notebooks.",
+      slug: "ml-algorithms-from-scratch",
+      description: "Core ML algorithms implemented from scratch in Python/NumPy with no high-level ML libraries.",
+      longDescription: "A collection of machine learning algorithms implemented from scratch using Python and NumPy, with no high-level ML libraries. Each algorithm includes a documented Jupyter Notebook with full mathematical explanations, manual implementation, visualizations, and evaluation metrics.\n\nCurrently implemented: Soft C-Means (Fuzzy C-Means) clustering with fuzzy membership updates, centroid updates, objective function tracking, and cluster visualizations. Includes Elbow Method and Silhouette Coefficient for cluster quality evaluation.\n\nThis repository serves as both a learning resource for understanding ML fundamentals and a demonstration of algorithmic knowledge — showing the mathematics behind each algorithm alongside clean, modular, well-commented code.",
       tech: ["Python", "NumPy", "Matplotlib", "Jupyter"],
       github: "https://github.com/drga9808/Machine-Learning-Algorithms",
       featured: true,
     },
     {
       title: "Toyota Hacks Blog",
-      description: "Full-stack blog application with CRUD functionality, authentication, Markdown formatting, and Cloudinary image hosting. Deployed on Fly.io with Cloudflare DNS and custom domain.",
+      slug: "toyota-hacks-blog",
+      description: "Full-stack blog with CRUD, authentication, Markdown support, and Cloudinary image hosting.",
+      longDescription: "A full-stack blog platform for Toyota enthusiasts to share repair guidance and maintenance documentation. Built with Node.js and Express for the backend, EJS for template rendering, and MongoDB for persistent data storage.\n\nCore features include creating, editing, and deleting blog posts with Markdown support, image upload and management via Cloudinary, user registration and login with session-based authentication using Express-session, and a responsive frontend styled with Bootstrap.\n\nThe application is deployed on Fly.io with Cloudflare DNS and a custom domain at toyota-blog.drga98.com.",
       tech: ["Node.js", "Express", "EJS", "MongoDB", "Cloudinary"],
       url: "https://toyota-blog.drga98.com",
       github: "https://github.com/drga9808/Toyota-hacks-blog",
     },
     {
       title: "LBG Auto-Clustering Algorithm",
-      description: "Automatic clustering approach based on the Linde-Buzo-Gray / Generalized Lloyd algorithm, adapted from IoT clustering literature. Includes computation and 2D visualization tooling.",
+      slug: "lbg-auto-clustering",
+      description: "Automatic clustering based on the Linde-Buzo-Gray algorithm with 2D visualization.",
+      longDescription: "An implementation of the Linde, Buzo, and Gray (LBG) algorithm — also known as the Generalized Lloyd algorithm — adapted from IoT clustering literature. Based on the original 1980 paper and methodology from \"Fundamentals of Internet of Things\" (Chapter 3), with modifications for automatic cluster optimization.\n\nThe project includes Python code for 2D computation and visualization, aiming to automatically determine both the optimal number of clusters and their positions based on data distribution patterns.\n\nOngoing work addresses handling clusters with no assigned data points, validation with larger datasets, displaying non-overlapping cluster boundaries, and confirming the stopping criterion.",
       tech: ["Python", "Jupyter"],
       github: "https://github.com/drga9808/Clustering-algorithm",
     },

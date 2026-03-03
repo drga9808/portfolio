@@ -1,54 +1,30 @@
 ---
 import SectionWrapper from "./SectionWrapper.astro";
 import { config } from "../data/config";
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <SectionWrapper id="projects" heading="Projects">
-  <div class="grid md:grid-cols-2 gap-6">
+  <div class="grid md:grid-cols-2 gap-4">
     {
       config.projects.map((project) => (
-        <div
-          class:list={[
-            "bg-surface border border-border rounded-xl p-6 transition-all card-glow",
-            project.featured && "md:col-span-2",
-          ]}
+        <a
+          href={`${base}projects/${project.slug}/`}
+          class="bg-surface border border-border rounded-xl p-4 transition-all card-glow hover:border-accent/30 block"
         >
-          <div class="flex items-start justify-between mb-3">
-            <h3 class="text-lg font-semibold text-text">{project.title}</h3>
-            <div class="flex gap-2">
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-muted hover:text-accent transition-colors text-sm"
-                >
-                  Code
-                </a>
-              )}
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-muted hover:text-accent transition-colors text-sm"
-                >
-                  Live
-                </a>
-              )}
-            </div>
-          </div>
-          <p class="text-muted text-sm mb-4 leading-relaxed">
+          <h3 class="text-base font-semibold text-text mb-2">{project.title}</h3>
+          <p class="text-muted text-sm mb-3 leading-relaxed line-clamp-2">
             {project.description}
           </p>
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap gap-1.5">
             {project.tech.map((t) => (
-              <span class="px-2.5 py-1 text-xs rounded-md bg-accent/10 text-accent-light font-medium">
+              <span class="px-2 py-0.5 text-xs rounded-md bg-accent/10 text-accent-light font-medium">
                 {t}
               </span>
             ))}
           </div>
-        </div>
+        </a>
       ))
     }
   </div>

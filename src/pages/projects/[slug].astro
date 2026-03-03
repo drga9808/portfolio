@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { config, type Project } from "../../data/config";
+
+export function getStaticPaths() {
+  return config.projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props as { project: Project };
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={`${project.title} — ${config.name}`}>
+  <main class="max-w-3xl mx-auto px-6 py-16">
+    <a
+      href={`${base}/#projects`}
+      class="inline-flex items-center gap-1 text-sm text-muted hover:text-accent transition-colors mb-8"
+    >
+      &larr; Back to projects
+    </a>
+
+    <h1 class="text-3xl font-bold bg-gradient-to-r from-accent to-accent-light bg-clip-text text-transparent mb-6">
+      {project.title}
+    </h1>
+
+    <div class="flex flex-wrap gap-3 mb-8">
+      {project.github && (
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg bg-accent/10 text-accent-light hover:bg-accent/20 transition-colors"
+        >
+          GitHub
+        </a>
+      )}
+      {project.url && (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-lg bg-accent/10 text-accent-light hover:bg-accent/20 transition-colors"
+        >
+          Live Demo
+        </a>
+      )}
+    </div>
+
+    <div class="flex flex-wrap gap-2 mb-8">
+      {project.tech.map((t) => (
+        <span class="px-2.5 py-1 text-xs rounded-md bg-accent/10 text-accent-light font-medium">
+          {t}
+        </span>
+      ))}
+    </div>
+
+    <div class="max-w-none">
+      {project.longDescription.split("\n\n").map((paragraph) => (
+        <p class="text-muted leading-relaxed mb-4">{paragraph}</p>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

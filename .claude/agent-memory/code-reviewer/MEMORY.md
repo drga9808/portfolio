@@ -26,3 +26,14 @@
 - Nav: `data-nav-link` active state uses `classList.replace` which silently no-ops if class absent
 - Hero: external social links have no `aria-label` — only icon text visible, no sr context
 - config.ts: `siteUrl` and placeholder values are template data, not a code issue
+
+## Dynamic Routing Pattern (added 2026-03-03)
+- New feature: individual project detail pages via `src/pages/projects/[slug].astro`
+- Uses `getStaticPaths()` to pre-generate static pages for each project in config
+- Projects interface now has mandatory `slug` and `longDescription` fields
+- Detail pages link back to home with `${base}#projects` anchor
+- Heading hierarchy inconsistency: detail page uses `<h1>`, main index uses `<h2>` under SectionWrapper
+
+## Recurring A11y Pattern
+- External links opened via `target="_blank"` need `aria-label="...opens in new tab"` to announce to screen readers
+- This applies to Publications, Hero socials, and any future external link cards
