@@ -20,6 +20,9 @@ import { config } from "../data/config";
           <p class="text-sm text-accent-light mt-1">
             {pub.publisher} &middot; {pub.date}
           </p>
+          {pub.context && (
+            <p class="text-xs text-accent-light/70 mt-1">{pub.context}</p>
+          )}
           <p class="text-sm text-muted mt-3 leading-relaxed">{pub.abstract}</p>
         </a>
       ))
