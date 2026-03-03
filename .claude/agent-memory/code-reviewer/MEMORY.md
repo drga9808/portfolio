@@ -37,3 +37,10 @@
 ## Recurring A11y Pattern
 - External links opened via `target="_blank"` need `aria-label="...opens in new tab"` to announce to screen readers
 - This applies to Publications, Hero socials, and any future external link cards
+- **Found again**: Contact.astro social links + Certifications.astro verify links missing aria-labels (2026-03-03)
+
+## Recent Changes Issues (2026-03-03 review)
+- SectionWrapper.astro:12 — Redundant ternary (centered ? "inline-block" : "inline-block") always same result
+- Contact.astro + Certifications.astro — External links need aria-label for a11y
+- About.astro — Profile image missing loading="lazy" for performance
+- About.astro vs Contact.astro — Inconsistent centered pattern (manual vs prop)

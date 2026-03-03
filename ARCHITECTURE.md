@@ -1,5 +1,5 @@
 # Portfolio Architecture
-_Last updated: 2026-03-03 — dynamic project detail pages, clickable cards_
+_Last updated: 2026-03-03 — profile photo in About, credential badges in Certifications, centered Contact_
 
 ## Stack
 - **Framework**: Astro 5 + TypeScript (strict mode)
@@ -22,14 +22,14 @@ _Last updated: 2026-03-03 — dynamic project detail pages, clickable cards_
 | `src/pages/projects/[slug].astro` | Dynamic project detail page. Generates route per project. Uses `getStaticPaths()` to build static pages at build time. | 67 |
 | `src/components/Nav.astro` | Navigation bar with social links + smooth scroll. | — |
 | `src/components/Hero.astro` | Hero section — name, title, tagline, CTA. | — |
-| `src/components/About.astro` | About section — paragraphs + optional avatar. | — |
+| `src/components/About.astro` | About section — profile photo + biography paragraphs. Displays `profile.jpg` from public folder. | — |
 | `src/components/Projects.astro` | Projects grid. Cards are clickable links to `/projects/[slug]/`. | — |
 | `src/components/Publications.astro` | Publications list. Cards are clickable links to external URLs. | — |
 | `src/components/Experience.astro` | Timeline of roles with bullets. | — |
-| `src/components/Certifications.astro` | Certifications list with issuer, date, verify URL. | — |
+| `src/components/Certifications.astro` | Certifications list with issuer, date, credential badges, verify URL. Renders badge images from `badge` field. | — |
 | `src/components/Skills.astro` | Skills grouped by category (Languages, Frontend, Backend, DevOps, Security). | — |
 | `src/components/Education.astro` | Education entries (degree, school, year). | — |
-| `src/components/Contact.astro` | Contact section with email + social links. | — |
+| `src/components/Contact.astro` | Contact section with email + social links. Centered layout. | — |
 | `src/components/SectionWrapper.astro` | Utility — wraps sections with consistent padding/layout. | — |
 | `.github/workflows/deploy.yml` | GitHub Actions CI/CD — builds on push main, deploys to Pages. | 41 |
 | `astro.config.mjs` | Astro config — Tailwind CSS v4 Vite plugin. | 11 |
@@ -56,9 +56,17 @@ _Last updated: 2026-03-03 — dynamic project detail pages, clickable cards_
 - Tailwind classes in component templates
 - Optional: add global CSS in `src/layouts/BaseLayout.astro`
 
+## Data Model
+| Interface | Key Fields |
+|-----------|-----------|
+| `SiteConfig` | name, title, tagline, about (with paragraphs), projects[], experience[], certifications[], skills[], education[], publications[], socials[] |
+| `Certification` | name, issuer, date, badge (path to image), verifyUrl — badge field displays credential badge images next to cert details |
+| `Project` | title, slug, description, longDescription, tech[], url, github, featured — slug + longDescription enable detail pages |
+
 ## Conventions
 - All content in `config.ts` — never hardcode in components
 - Components accept no props; read from global config import
 - Astro-only (no client-side JS by default)
 - Social links in `config.socials` rendered across site
 - Project slugs must be URL-safe (lowercase, hyphens, no spaces)
+- Certification badges: store image path in `badge` field; images should be in `public/badges/` folder
