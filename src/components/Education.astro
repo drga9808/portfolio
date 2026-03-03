@@ -12,6 +12,7 @@ import { config } from "../data/config";
           <h3 class="text-base font-semibold text-text">{edu.degree}</h3>
           <p class="text-sm text-accent-light">{edu.school}</p>
           <p class="text-xs text-muted mt-0.5">{edu.year}</p>
+          {edu.note && <p class="text-xs text-muted/70 mt-1">{edu.note}</p>}
         </div>
       ))
     }

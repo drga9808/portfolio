@@ -1,0 +1,27 @@
+---
+import SectionWrapper from "./SectionWrapper.astro";
+import { config } from "../data/config";
+---
+
+<SectionWrapper id="publications" heading="Publications">
+  <div class="space-y-6">
+    {
+      config.publications.map((pub) => (
+        <div class="bg-surface border border-border rounded-xl p-6 card-glow transition-all">
+          <a
+            href={pub.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-base font-semibold text-text hover:text-accent transition-colors"
+          >
+            {pub.title}
+          </a>
+          <p class="text-sm text-accent-light mt-1">
+            {pub.publisher} &middot; {pub.date}
+          </p>
+          <p class="text-sm text-muted mt-3 leading-relaxed">{pub.abstract}</p>
+        </div>
+      ))
+    }
+  </div>
+</SectionWrapper>
