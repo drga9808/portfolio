@@ -1,0 +1,36 @@
+---
+import { config } from "../data/config";
+---
+
+<section
+  id="hero"
+  class="min-h-screen flex items-center justify-center px-6 pt-16"
+>
+  <div class="text-center max-w-3xl">
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-4 gradient-text">
+      {config.name}
+    </h1>
+    <p class="text-xl md:text-2xl text-muted mb-3">{config.title}</p>
+    <p class="text-lg text-muted/70 mb-10">{config.tagline}</p>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      {
+        config.socials.map((s) => (
+          <a
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2.5 rounded-lg bg-surface border border-border text-sm font-medium text-text hover:border-accent transition-colors"
+          >
+            {s.label}
+          </a>
+        ))
+      }
+      <a
+        href={`mailto:${config.email}`}
+        class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-accent to-accent-light text-sm font-medium text-white hover:opacity-90 transition-opacity"
+      >
+        Email Me
+      </a>
+    </div>
+  </div>
+</section>

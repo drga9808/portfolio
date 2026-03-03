@@ -1,0 +1,123 @@
+---
+const links = [
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#certifications", label: "Certs" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 bg-bg/80 backdrop-blur-md border-b border-border"
+>
+  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#" class="text-lg font-bold gradient-text">Portfolio</a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex items-center gap-6">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            data-nav-link
+            class="text-sm text-muted hover:text-text transition-colors"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="block w-5 h-0.5 bg-text transition-transform" id="bar1"
+      ></span>
+      <span class="block w-5 h-0.5 bg-text transition-opacity" id="bar2"
+      ></span>
+      <span class="block w-5 h-0.5 bg-text transition-transform" id="bar3"
+      ></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden hidden border-t border-border bg-bg/95 backdrop-blur-md"
+    aria-hidden="true"
+  >
+    <div class="flex flex-col px-6 py-4 gap-4">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            data-mobile-link
+            class="text-sm text-muted hover:text-text transition-colors"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const bar1 = document.getElementById("bar1");
+  const bar2 = document.getElementById("bar2");
+  const bar3 = document.getElementById("bar3");
+
+  let open = false;
+  btn?.addEventListener("click", () => {
+    open = !open;
+    menu?.classList.toggle("hidden", !open);
+    menu?.setAttribute("aria-hidden", String(!open));
+    btn?.setAttribute("aria-expanded", String(open));
+    bar1!.style.transform = open ? "rotate(45deg) translate(3px, 3px)" : "";
+    bar2!.style.opacity = open ? "0" : "1";
+    bar3!.style.transform = open ? "rotate(-45deg) translate(3px, -3px)" : "";
+  });
+
+  document.querySelectorAll("[data-mobile-link]").forEach((link) => {
+    link.addEventListener("click", () => {
+      open = false;
+      menu?.classList.add("hidden");
+      menu?.setAttribute("aria-hidden", "true");
+      btn?.setAttribute("aria-expanded", "false");
+      bar1!.style.transform = "";
+      bar2!.style.opacity = "1";
+      bar3!.style.transform = "";
+    });
+  });
+
+  // Scroll spy
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll("[data-nav-link]");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            const isActive = href === `#${entry.target.id}`;
+            link.classList.toggle("text-accent", isActive);
+            link.classList.toggle("text-muted", !isActive);
+          });
+        }
+      });
+    },
+    { rootMargin: "-20% 0px -70% 0px" }
+  );
+
+  sections.forEach((s) => observer.observe(s));
+</script>

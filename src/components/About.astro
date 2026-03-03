@@ -1,0 +1,10 @@
+---
+import SectionWrapper from "./SectionWrapper.astro";
+import { config } from "../data/config";
+---
+
+<SectionWrapper id="about" heading="About">
+  <div class="max-w-3xl space-y-4 text-muted leading-relaxed">
+    {config.about.paragraphs.map((p) => <p>{p}</p>)}
+  </div>
+</SectionWrapper>

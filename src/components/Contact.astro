@@ -1,0 +1,33 @@
+---
+import SectionWrapper from "./SectionWrapper.astro";
+import { config } from "../data/config";
+---
+
+<SectionWrapper id="contact" heading="Get in Touch">
+  <div class="text-center max-w-xl mx-auto">
+    <p class="text-muted mb-8 leading-relaxed">
+      Interested in working together? Feel free to reach out — I'm always open
+      to discussing new opportunities and ideas.
+    </p>
+    <a
+      href={`mailto:${config.email}`}
+      class="inline-block px-8 py-3 rounded-lg bg-gradient-to-r from-accent to-accent-light text-white font-medium hover:opacity-90 transition-opacity"
+    >
+      Say Hello
+    </a>
+    <div class="flex items-center justify-center gap-6 mt-8">
+      {
+        config.socials.map((s) => (
+          <a
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-muted hover:text-accent transition-colors text-sm"
+          >
+            {s.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</SectionWrapper>

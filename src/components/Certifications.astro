@@ -1,0 +1,28 @@
+---
+import SectionWrapper from "./SectionWrapper.astro";
+import { config } from "../data/config";
+---
+
+<SectionWrapper id="certifications" heading="Certifications">
+  <div class="grid sm:grid-cols-2 gap-6">
+    {
+      config.certifications.map((cert) => (
+        <div class="bg-surface border border-border rounded-xl p-6 card-glow transition-all">
+          <h3 class="text-base font-semibold text-text mb-1">{cert.name}</h3>
+          <p class="text-sm text-accent-light">{cert.issuer}</p>
+          <p class="text-xs text-muted mt-1">{cert.date}</p>
+          {cert.verifyUrl && (
+            <a
+              href={cert.verifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block mt-3 text-xs text-accent hover:text-accent-light transition-colors"
+            >
+              Verify Credential &rarr;
+            </a>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</SectionWrapper>
