@@ -129,7 +129,7 @@ export const config: SiteConfig = {
     {
       role: "Associate Engineer, Production Systems",
       company: "NBCUniversal",
-      period: "Present",
+      period: "May 2026 — Present",
       bullets: [
         "Support studios, production control rooms, and the technical systems behind Telemundo productions.",
         "Troubleshoot production incidents and support remote workstations for production teams.",
@@ -151,7 +151,7 @@ export const config: SiteConfig = {
     {
       role: "Desktop Support Analyst II",
       company: "Royal Caribbean Group (via Dyopath)",
-      period: "Dec 2025 — Present",
+      period: "Dec 2025 — Mar 2026",
       bullets: [
         "Deliver Tier 2 technical support managing high-volume ticket queues based on SLA and business impact.",
         "Analyze recurring incidents to identify patterns and root causes.",
