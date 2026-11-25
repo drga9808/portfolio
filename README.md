@@ -2,7 +2,7 @@
 
 [View the live portfolio](https://portfolio.drga98.com/)
 
-This site presents my projects in data analysis, automation, and AI systems, along with my professional experience, certifications, and publications. It is built with Astro, TypeScript, and Tailwind CSS.
+This portfolio introduces my work supporting Telemundo productions at NBCUniversal and features selected projects in data analysis, automation, and AI systems. It also covers my professional experience, certifications, and publications. The site is built with Astro, TypeScript, and Tailwind CSS.
 
 ## Run locally
 
