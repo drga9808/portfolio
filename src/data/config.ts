@@ -65,9 +65,9 @@ export interface Publication {
 
 export const config: SiteConfig = {
   name: "Daniel R. Garcia Avila",
-  title: "Data Analyst | Automation & AI Systems",
-  tagline: "Turning data into decisions, and processes into automated pipelines.",
-  description: "Portfolio of Daniel R. Garcia Avila — Data Analyst and Automation Engineer with an IT, networking, and systems integration background.",
+  title: "Broadcast Engineering & Technical Operations",
+  tagline: "Supporting live production through reliable systems and practical troubleshooting.",
+  description: "Portfolio of Daniel R. Garcia Avila, covering broadcast engineering, technical operations, and automation.",
   siteUrl: "https://drga9808.github.io",
   email: "danieltram3@gmail.com",
 
@@ -78,7 +78,7 @@ export const config: SiteConfig = {
 
   about: {
     paragraphs: [
-      "Telecommunications and Electronics Engineer transitioning into Data Analytics and Automation Engineering with a strong IT, networking, and systems integration background.",
+      "I’m a Telecommunications and Electronics Engineer at NBCUniversal supporting Telemundo productions, with a background in IT, networking, and systems integration.",
       "I design structured data models, build workflow automation systems, integrate APIs and CRMs, and implement data validation and quality controls using PostgreSQL, n8n, and cloud-based architectures.",
       "I combine analytical thinking, backend systems knowledge, and automation design to translate business processes into structured, scalable technical solutions.",
     ],
@@ -126,6 +126,16 @@ export const config: SiteConfig = {
   ],
 
   experience: [
+    {
+      role: "Associate Engineer, Production Systems",
+      company: "NBCUniversal",
+      period: "Present",
+      bullets: [
+        "Support studios, production control rooms, and the technical systems behind Telemundo productions.",
+        "Troubleshoot production incidents and support remote workstations for production teams.",
+        "Maintain signal-flow documentation and standard operating procedures for control rooms.",
+      ],
+    },
     {
       role: "Automation & AI Systems Associate",
       company: "Hercules Advertising LLC",
