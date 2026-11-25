@@ -109,10 +109,9 @@ export const config: SiteConfig = {
       title: "Toyota Hacks Blog",
       slug: "toyota-hacks-blog",
       description: "Full-stack blog with CRUD, authentication, Markdown support, and Cloudinary image hosting.",
-      longDescription: "A full-stack blog platform for Toyota enthusiasts to share repair guidance and maintenance documentation. Built with Node.js and Express for the backend, EJS for template rendering, and MongoDB for persistent data storage.\n\nCore features include creating, editing, and deleting blog posts with Markdown support, image upload and management via Cloudinary, user registration and login with session-based authentication using Express-session, and a responsive frontend styled with Bootstrap.\n\nThe application is deployed on Fly.io with Cloudflare DNS and a custom domain at toyota-blog.drga98.com.",
+      longDescription: "A full-stack blog platform for Toyota enthusiasts to share repair guidance and maintenance documentation. Built with Node.js and Express for the backend, EJS for template rendering, and MongoDB for persistent data storage.\n\nCore features include creating, editing, and deleting blog posts with Markdown support, image upload and management via Cloudinary, user registration and login with session-based authentication using Express-session, and a responsive frontend styled with Bootstrap.",
       tech: ["Node.js", "Express", "EJS", "MongoDB", "Cloudinary"],
       context: "Personal Project",
-      url: "https://toyota-blog.drga98.com",
       github: "https://github.com/drga9808/Toyota-hacks-blog",
     },
     {
